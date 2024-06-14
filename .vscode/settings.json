@@ -2,7 +2,7 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "maven.terminal.favorites": [
         {
-            "command": "compile package exec:java",
+            "command": "compile package test",
             "debug": false
         }
     ]
