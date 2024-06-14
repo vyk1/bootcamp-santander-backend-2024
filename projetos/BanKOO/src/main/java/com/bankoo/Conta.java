@@ -1,3 +1,4 @@
+package com.bankoo;
 
 public abstract class Conta implements IConta {
 	

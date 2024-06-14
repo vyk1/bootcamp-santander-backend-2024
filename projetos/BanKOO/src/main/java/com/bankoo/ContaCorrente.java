@@ -1,3 +1,4 @@
+package com.bankoo;
 
 public class ContaCorrente extends Conta {
 
