@@ -12,6 +12,7 @@ public abstract class Conta implements IConta {
 	protected int numero;
 	protected double saldo;
 	protected Cliente cliente;
+	protected boolean isBloqueada;
 
 	public Conta(Cliente cliente) {
 		this.agencia = Conta.AGENCIA_PADRAO;
@@ -21,11 +22,28 @@ public abstract class Conta implements IConta {
 
 	@Override
 	public void sacar(double valor) {
+		validarSaldo(valor);
 		saldo -= valor;
+	}
+
+	public void validarSaldo(double valor) {
+		validarContaBloqueada();
+		if (valor <= 0) {
+			throw new RuntimeException("Valor inválido");
+		}
+
+		if (this.saldo < valor) {
+			throw new RuntimeException("Saldo insuficiente");
+		}
+
+		if (saldo - valor < 0) {
+			throw new RuntimeException("Saldo insuficiente");
+		}
 	}
 
 	@Override
 	public void depositar(double valor) {
+		validarContaBloqueada();
 		saldo += valor;
 	}
 
@@ -33,6 +51,12 @@ public abstract class Conta implements IConta {
 	public void transferir(double valor, IConta contaDestino) {
 		this.sacar(valor);
 		contaDestino.depositar(valor);
+	}
+
+	public void validarContaBloqueada() {
+		if (isBloqueada) {
+			throw new RuntimeException("Conta bloqueada");
+		}
 	}
 
 	protected void imprimirInfosComuns() {
