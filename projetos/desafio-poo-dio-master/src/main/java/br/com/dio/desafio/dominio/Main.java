@@ -37,8 +37,8 @@ public class Main {
         devCamila.setNome("Camila");
         devCamila.inscreverBootcamp(bootcamp);
         devCamila.imprimirInformacoes();
-        devCamila.progredir();
-        devCamila.progredir();
+        devCamila.progredir(bootcamp);
+        devCamila.progredir(bootcamp);
         System.out.println("-");
         devCamila.imprimirInformacoes();
 
@@ -48,9 +48,9 @@ public class Main {
         devJoao.setNome("Joao");
         devJoao.inscreverBootcamp(bootcamp);
         devJoao.imprimirInformacoes();
-        devJoao.progredir();
-        devJoao.progredir();
-        devJoao.progredir();
+        devJoao.progredir(bootcamp);
+        devJoao.progredir(bootcamp);
+        devJoao.progredir(bootcamp);
         System.out.println("-");
         devJoao.imprimirInformacoes();
 
@@ -59,11 +59,13 @@ public class Main {
         devCleiton.setNome("Cleiton");
         devCleiton.inscreverBootcamp(bootcamp);
         devCleiton.imprimirInformacoes();
-        System.out.println("-");
-        devCleiton.progredir();
+        devCleiton.progredir(bootcamp);
         bootcamp.banir(devCleiton);
         System.out.println("-");
-        devCleiton.progredir();
+        devCleiton.progredir(bootcamp);
+        bootcamp.liberar(devCleiton);
+        devCleiton.progredir(bootcamp);
+        devCleiton.imprimirInformacoes();
 
     }
 
