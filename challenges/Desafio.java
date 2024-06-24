@@ -49,7 +49,6 @@ class ContaPoupanca extends ContaBancaria {
     public void exibirInformacoes() {
         super.exibirInformacoes();
         // TODO: Complementar as informações com a taxa de juros.
-        DecimalFormat decimalFormat = new DecimalFormat("#.0");
-        System.out.println("Taxa de Juros: " + decimalFormat.format(taxaJuros) + "%");
+        System.out.println("Taxa de juros: " + taxaJuros + "%");
     }
 }
